@@ -11,9 +11,6 @@
                 <a class="navbar-brand" href="#">SoftControl</a>
                 
             </div>
-            <?php
-                //print_r($menu);
-            ?>
             <ul class="nav navbar-nav">
                 <?php
                     foreach ($menu['menu'] as $m){

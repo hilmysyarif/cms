@@ -47,12 +47,9 @@ class Page extends CI_Controller {
         $data = (array) json_decode($file,true);
         $data['pagename'] = $pagename;
         
-        $menu_file = file_get_contents("./_application/views/config/navigation.html");
-        
-        $nav = (array) json_decode($menu_file,true);
-        $data['nav']= $nav;
-        
         $this->load->library('navigation');
+        
+        $data['nav']= $this->navigation->load();
         
         $this->load->view("html_head",$data);
         $this->load->view("content_head.php",$data);

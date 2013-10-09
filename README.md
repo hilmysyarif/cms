@@ -1,6 +1,11 @@
 ##Static CMS##
 
 This is just a static CMS based on CodeIgniter.
+### 0.2 ###
+
+* submenu feature has been added
+* you can add submenu in navigation.html config
+* merged with master branch
 
 ### 0.1 ###
 

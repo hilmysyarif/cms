@@ -28,8 +28,12 @@ class Page extends CI_Controller {
         // html heading configuration file are stored in html extension 
         // with json format
         
+        
+        $site = "./_application/views/config/site.html";
+        $site_data = file_get_contents($site);
+        
         $filename = "./_application/views/config/" . $pagename;
-         
+        
         if(file_exists($filename)){
             
             $file = file_get_contents($filename);    
@@ -43,11 +47,12 @@ class Page extends CI_Controller {
             
         }
         
-        $data = array();
+        $data = array();  
         $data = (array) json_decode($file,true);
-        $data['pagename'] = $pagename;
         
-        $this->load->library('navigation');
+        $data['site'] = (array) json_decode($site_data,true);
+        
+        $data['pagename'] = $pagename;
         
         $data['nav']= $this->navigation->load();
         
@@ -55,6 +60,7 @@ class Page extends CI_Controller {
         $this->load->view("content_head.php",$data);
         $this->load->view("templates/$pagename",$data);
         $this->load->view("footer",$data);
+        
     }
 }
 
